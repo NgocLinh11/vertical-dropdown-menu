@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành tạo Menu Dọc Dropdown</title>
+    <style type="text/css">
+        /* 1. Reset CSS cơ bản & cài đặt Font chữ */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+
+        /* 2. Cấu hình danh sách ul, li cơ bản */
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 3. Cấu hình các thẻ li trong menu */
+        #menu li {
+            list-style: none;         /* Bỏ dấu đầu dòng bullet */
+            position: relative;       /* Làm mốc tọa độ cho menu con lồng bên trong */
+            width: 120px;             /* Chiều rộng ô menu */
+            height: 30px;            /* Chiều cao ô menu */
+            padding: 0 20px;          /* Khoảng đệm trái/phải 20px */
+            background-color: black;  /* Màu nền đen */
+            line-height: 30px;        /* Căn giữa văn bản theo chiều dọc */
+            cursor: pointer;          /* Đổi con trỏ thành hình bàn tay khi rê chuột */
+        }
+
+        /* 4. Định dạng thẻ a (liên kết) trong menu */
+        #menu a {
+            text-decoration: none;    /* Bỏ gạch chân liên kết */
+            color: white;             /* Màu chữ trắng */
+            display: block;
+        }
+
+        /* 5. Hiệu ứng Hover - Đổi màu nền khi rê chuột vào mục menu */
+        #menu li:hover {
+            background-color: #444444; /* Đổi sang màu xám đậm khi hover */
+        }
+
+        /* 6. Định dạng danh sách con (Submenu) - Mặc định sẽ BỊ ẨN */
+        #menu li ul {
+            position: absolute;       /* Cố định vị trí tương đối so với li cha */
+            top: 0;                   /* Căn đỉnh bằng với mục cha */
+            left: 160px;              /* Đẩy sang bên phải (120px width + 40px padding = 160px) */
+            visibility: hidden;       /* Mặc định ẩn danh sách con */
+        }
+
+        /* 7. Hiệu ứng Hover để HIỂN THỊ danh sách con */
+        #menu li:hover > ul {
+            visibility: visible;      /* Hiển thị danh sách con khi di chuột vào li cha */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Trình đơn dọc Dropdown</h2>
+
+    <!-- Vùng menu chính -->
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Sản phẩm</a>
+                <!-- Submenu cấp 1 -->
+                <ul>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Máy tính bảng</a></li>
+                    <li>
+                        <a href="#">Laptop</a>
+                        <!-- Submenu cấp 2 (nếu muốn mở rộng) -->
+                        <ul>
+                            <li><a href="#">Dell</a></li>
+                            <li><a href="#">MacBook</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dịch vụ</a>
+                <!-- Submenu cấp 1 -->
+                <ul>
+                    <li><a href="#">Bảo hành</a></li>
+                    <li><a href="#">Sửa chữa</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
